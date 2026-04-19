@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FilterLens — Sepia & Grayscale Generator</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <div class="brand-icon">
+      <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="10" cy="10" r="8" stroke="white" stroke-width="1.5"/>
+        <circle cx="10" cy="10" r="3.5" fill="white"/>
+        <path d="M10 2v3M10 15v3M2 10h3M15 10h3" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <span class="brand-name">FilterLens</span>
+    <span class="brand-tag">Determinan</span>
+  </div>
+  <div class="header-actions">
+    <button class="btn btn-ghost" onclick="resetAll()">Reset</button>
+    <button class="btn btn-primary" id="download-btn" onclick="downloadImage()" style="display:none">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Unduh Foto
+    </button>
+  </div>
+</header>
+
+<main>
+  <!-- panel kiri -->
+  <aside>
+    <!-- upload -->
+    <div class="panel" style="margin-bottom: 1.2rem;">
+      <div class="panel-header">
+        <div class="panel-icon">
+          <svg viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="12" height="12" rx="2" stroke="white" stroke-width="1.2"/><path d="M1 9.5l3-3 2.5 2.5 2-2 3.5 4" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <span class="panel-title">Unggah Foto</span>
+      </div>
+      <div class="panel-body">
+        <div class="upload-zone" id="upload-zone">
+          <input type="file" id="file-input" accept="image/*">
+          <div class="upload-icon">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 14V4M7 8l4-4 4 4" stroke="#8B6F47" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 17h16" stroke="#8B6F47" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <div class="upload-text">
+            <strong>Pilih atau seret foto</strong><br>ke sini untuk memulai
+          </div>
+          <div class="upload-hint">PNG, JPG, WEBP — maks. 20MB</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- kontrol filter -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-icon">
+          <svg viewBox="0 0 14 14" fill="none"><circle cx="4" cy="4" r="2" stroke="white" stroke-width="1.2"/><circle cx="10" cy="10" r="2" stroke="white" stroke-width="1.2"/><path d="M6 4h6M2 10h6" stroke="white" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </div>
+        <span class="panel-title">Kontrol Filter</span>
+      </div>
+      <div class="panel-body">
+
+        <!-- pilih filter -->
+        <p class="section-label">Mode Filter</p>
+        <div class="filter-tabs">
+          <button class="filter-tab active" data-mode="sepia" onclick="setMode('sepia')">
+            <div class="tab-preview"></div>
+            <span class="tab-name">Sepia</span>
+          </button>
+          <button class="filter-tab gray" data-mode="grayscale" onclick="setMode('grayscale')">
+            <div class="tab-preview"></div>
+            <span class="tab-name">Grayscale</span>
+          </button>
+        </div>
+
+        <!-- Intensity -->
+        <div class="control-row">
+          <div class="control-header">
+            <span class="control-label">Intensitas Filter</span>
+            <span class="control-value" id="intensity-val">100%</span>
+          </div>
+          <input type="range" id="intensity" min="0" max="100" value="100" oninput="updateFilter()">
+        </div>
+
+        <!-- Brightness -->
+        <div class="control-row">
+          <div class="control-header">
+            <span class="control-label">Kecerahan</span>
+            <span class="control-value" id="brightness-val">100%</span>
+          </div>
+          <input type="range" id="brightness" min="50" max="150" value="100" oninput="updateFilter()">
+        </div>
+
+        <!-- Contrast -->
+        <div class="control-row">
+          <div class="control-header">
+            <span class="control-label">Kontras</span>
+            <span class="control-value" id="contrast-val">100%</span>
+          </div>
+          <input type="range" id="contrast" min="50" max="150" value="100" oninput="updateFilter()">
+        </div>
+
+        <!-- Vignette -->
+        <div class="control-row">
+          <div class="control-header">
+            <span class="control-label">Vignette</span>
+            <span class="control-value" id="vignette-val">0%</span>
+          </div>
+          <input type="range" id="vignette" min="0" max="100" value="0" oninput="updateFilter()">
+        </div>
+
+        <div class="divider"></div>
+
+        <!--Info Determinan -->
+        <p class="section-label">Matriks Transformasi (Determinan)</p>
+        <div class="det-card">
+          <div class="det-header">
+            <span class="det-badge" id="mode-badge">Sepia</span>
+          </div>
+          <div class="matrix-display" id="matrix-display">
+            [ 0.393  0.769  0.189 ]<br>
+            [ 0.349  0.686  0.168 ]<br>
+            [ 0.272  0.534  0.131 ]
+          </div>
+          <div class="det-result">
+            <span class="det-label">det(M) =</span>
+            <span class="det-value" id="det-value">0.000000</span>
+          </div>
+          <div class="progress-bar" id="det-bar"></div>
+        </div>
+
+      </div>
+    </div>
+  </aside>
+
+  <!-- panel kanan -->
+  <section class="canvas-panel">
+    <div class="canvas-header">
+      <span class="canvas-title">Hasil</span>
+      <div style="display:flex; align-items:center; gap:10px;">
+        <div class="view-toggle">
+          <button class="view-btn active" onclick="setView('single')">Hasil</button>
+          <button class="view-btn" onclick="setView('compare')">Compare</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="canvas-body" id="canvas-body">
+      <!-- Empty state -->
+      <div class="empty-state" id="empty-state">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+          <rect x="8" y="12" width="48" height="40" rx="6" stroke="#8B6F47" stroke-width="2"/>
+          <circle cx="24" cy="26" r="5" stroke="#8B6F47" stroke-width="2"/>
+          <path d="M8 42l14-10 10 8 8-6 16 14" stroke="#8B6F47" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <p>Unggah foto untuk memulai<br>eksperimen filter.</p>
+      </div>
+
+      <!-- Loading -->
+      <div class="loading-state" id="loading-state">
+        <div class="spinner"></div>
+        <span>Memproses foto...</span>
+      </div>
+
+      <!-- Single view -->
+      <canvas id="preview-canvas"></canvas>
+
+      <!-- Compare view -->
+      <div class="compare-wrap" id="compare-wrap">
+        <div class="compare-item">
+          <span class="compare-label">Asli</span>
+          <canvas id="orig-canvas"></canvas>
+        </div>
+        <div class="compare-item">
+          <span class="compare-label" id="compare-label-text">Sepia</span>
+          <canvas id="filtered-canvas"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-bar" id="stats-bar" style="display:none;">
+      <div class="stat-item">
+        <span class="stat-label">Dimensi</span>
+        <span class="stat-value" id="stat-size">—</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">Mode</span>
+        <span class="stat-value" id="stat-mode">—</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">Determinan</span>
+        <span class="stat-value" id="stat-det">—</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">Format</span>
+        <span class="stat-value" id="stat-format">PNG</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Hidden canvases for processing -->
+<canvas id="original-canvas-hidden" style="display:none;"></canvas>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
