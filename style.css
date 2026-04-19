@@ -322,20 +322,22 @@ body {
 /* Compare Slider */
 .compare-slider {
   position: absolute; inset: 0;
-  display: flex; align-items: stretch;
+  pointer-events: none;
 }
 .compare-layer {
-  position: absolute; top: 0; left: 0;
-  max-height: 100%; max-width: 100%;
+  position: absolute;
+  /* will be sized & positioned by JS to exactly match preview canvas */
+  display: block;
 }
 .compare-divider {
   position: absolute;
-  top: 0; bottom: 0;
   width: 3px;
   background: white;
   cursor: ew-resize;
   transform: translateX(-50%);
+  pointer-events: all;
   left: 50%;
+  top: 0; bottom: 0;
 }
 .divider-handle {
   position: absolute; top: 50%; left: 50%;

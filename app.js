@@ -470,38 +470,75 @@ const divider        = document.getElementById('divider');
 let   compareDrag    = false;
 let   comparePos     = 50; // percent
 
+// Draw original image into originalLayer canvas at full resolution
+function setupOriginalLayer() {
+  originalLayer.width  = state.imageW;
+  originalLayer.height = state.imageH;
+  originalLayer.getContext('2d').putImageData(state.image, 0, 0);
+  syncLayerToPreview();
+}
+
+// Sync originalLayer CSS size+position to exactly match the rendered preview canvas
+function syncLayerToPreview() {
+  const pr = preview.getBoundingClientRect();
+  const wr = preview.parentElement.getBoundingClientRect();
+  const left   = pr.left - wr.left;
+  const top    = pr.top  - wr.top;
+  const width  = pr.width;
+  const height = pr.height;
+
+  originalLayer.style.cssText = [
+    'position:absolute',
+    `left:${left}px`,
+    `top:${top}px`,
+    `width:${width}px`,
+    `height:${height}px`,
+    `clip-path:inset(0 ${100 - comparePos}% 0 0)`,
+  ].join(';');
+
+  divider.style.left   = (left + width * comparePos / 100) + 'px';
+  divider.style.top    = top + 'px';
+  divider.style.height = height + 'px';
+  divider.style.bottom = 'auto';
+}
+
 btnCompare.addEventListener('click', () => {
   state.comparing = !state.comparing;
   btnCompare.classList.toggle('active', state.comparing);
   if (state.comparing) {
-    // Show original behind
-    originalLayer.width  = state.imageW;
-    originalLayer.height = state.imageH;
-    originalLayer.getContext('2d').putImageData(state.image, 0, 0);
-    originalLayer.style.cssText = `position:absolute;top:0;left:0;width:100%;height:100%;clip-path:inset(0 ${100-comparePos}% 0 0)`;
-    divider.style.left = comparePos + '%';
-    compareSlider.style.display = 'flex';
+    setupOriginalLayer();
+    compareSlider.style.display = 'block';
   } else {
     compareSlider.style.display = 'none';
   }
 });
 
-divider.addEventListener('mousedown', () => compareDrag = true);
-document.addEventListener('mouseup', () => compareDrag = false);
+divider.addEventListener('mousedown', e => { compareDrag = true; e.preventDefault(); });
+document.addEventListener('mouseup', () => { compareDrag = false; });
 document.addEventListener('mousemove', e => {
   if (!compareDrag || !state.comparing) return;
-  const rect = preview.getBoundingClientRect();
-  comparePos = Math.max(5, Math.min(95, (e.clientX - rect.left) / rect.width * 100));
-  divider.style.left = comparePos + '%';
-  originalLayer.style.clipPath = `inset(0 ${100-comparePos}% 0 0)`;
+  const pr  = preview.getBoundingClientRect();
+  const wr  = preview.parentElement.getBoundingClientRect();
+  comparePos = Math.max(2, Math.min(98, (e.clientX - pr.left) / pr.width * 100));
+  originalLayer.style.clipPath = `inset(0 ${100 - comparePos}% 0 0)`;
+  divider.style.left = (pr.left - wr.left + pr.width * comparePos / 100) + 'px';
 });
+
+divider.addEventListener('touchstart', e => { compareDrag = true; e.preventDefault(); }, { passive: false });
+document.addEventListener('touchend', () => { compareDrag = false; });
 divider.addEventListener('touchmove', e => {
   e.preventDefault();
-  const rect = preview.getBoundingClientRect();
-  comparePos = Math.max(5, Math.min(95, (e.touches[0].clientX - rect.left) / rect.width * 100));
-  divider.style.left = comparePos + '%';
-  originalLayer.style.clipPath = `inset(0 ${100-comparePos}% 0 0)`;
+  if (!state.comparing) return;
+  const pr  = preview.getBoundingClientRect();
+  const wr  = preview.parentElement.getBoundingClientRect();
+  comparePos = Math.max(2, Math.min(98, (e.touches[0].clientX - pr.left) / pr.width * 100));
+  originalLayer.style.clipPath = `inset(0 ${100 - comparePos}% 0 0)`;
+  divider.style.left = (pr.left - wr.left + pr.width * comparePos / 100) + 'px';
 }, { passive: false });
+
+window.addEventListener('resize', () => {
+  if (state.comparing) syncLayerToPreview();
+});
 
 // ── Download ──────────────────────────────────────────────────
 btnDownload.addEventListener('click', () => {
