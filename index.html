@@ -1,215 +1,205 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FilterLens — Sepia & Grayscale Generator</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FiltraLens — Photo Filter Studio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-<header>
-  <div class="brand">
-    <div class="brand-icon">
-      <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="10" cy="10" r="8" stroke="white" stroke-width="1.5"/>
-        <circle cx="10" cy="10" r="3.5" fill="white"/>
-        <path d="M10 2v3M10 15v3M2 10h3M15 10h3" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-      </svg>
-    </div>
-    <span class="brand-name">FilterLens</span>
-    <span class="brand-tag">Determinan</span>
+  <!-- Background Decoration -->
+  <div class="bg-decor">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
   </div>
-  <div class="header-actions">
-    <button class="btn btn-ghost" onclick="resetAll()">Reset</button>
-    <button class="btn btn-primary" id="download-btn" onclick="downloadImage()" style="display:none">
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Unduh Foto
-    </button>
-  </div>
-</header>
 
-<main>
-  <!-- panel kiri -->
-  <aside>
-    <!-- upload -->
-    <div class="panel" style="margin-bottom: 1.2rem;">
-      <div class="panel-header">
-        <div class="panel-icon">
-          <svg viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="12" height="12" rx="2" stroke="white" stroke-width="1.2"/><path d="M1 9.5l3-3 2.5 2.5 2-2 3.5 4" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <span class="panel-title">Unggah Foto</span>
-      </div>
-      <div class="panel-body">
-        <div class="upload-zone" id="upload-zone">
-          <input type="file" id="file-input" accept="image/*">
-          <div class="upload-icon">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 14V4M7 8l4-4 4 4" stroke="#8B6F47" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 17h16" stroke="#8B6F47" stroke-width="1.6" stroke-linecap="round"/></svg>
-          </div>
-          <div class="upload-text">
-            <strong>Pilih atau seret foto</strong><br>ke sini untuk memulai
-          </div>
-          <div class="upload-hint">PNG, JPG, WEBP — maks. 20MB</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- kontrol filter -->
-    <div class="panel">
-      <div class="panel-header">
-        <div class="panel-icon">
-          <svg viewBox="0 0 14 14" fill="none"><circle cx="4" cy="4" r="2" stroke="white" stroke-width="1.2"/><circle cx="10" cy="10" r="2" stroke="white" stroke-width="1.2"/><path d="M6 4h6M2 10h6" stroke="white" stroke-width="1.2" stroke-linecap="round"/></svg>
-        </div>
-        <span class="panel-title">Kontrol Filter</span>
-      </div>
-      <div class="panel-body">
-
-        <!-- pilih filter -->
-        <p class="section-label">Mode Filter</p>
-        <div class="filter-tabs">
-          <button class="filter-tab active" data-mode="sepia" onclick="setMode('sepia')">
-            <div class="tab-preview"></div>
-            <span class="tab-name">Sepia</span>
-          </button>
-          <button class="filter-tab gray" data-mode="grayscale" onclick="setMode('grayscale')">
-            <div class="tab-preview"></div>
-            <span class="tab-name">Grayscale</span>
-          </button>
-        </div>
-
-        <!-- Intensity -->
-        <div class="control-row">
-          <div class="control-header">
-            <span class="control-label">Intensitas Filter</span>
-            <span class="control-value" id="intensity-val">100%</span>
-          </div>
-          <input type="range" id="intensity" min="0" max="100" value="100" oninput="updateFilter()">
-        </div>
-
-        <!-- Brightness -->
-        <div class="control-row">
-          <div class="control-header">
-            <span class="control-label">Kecerahan</span>
-            <span class="control-value" id="brightness-val">100%</span>
-          </div>
-          <input type="range" id="brightness" min="50" max="150" value="100" oninput="updateFilter()">
-        </div>
-
-        <!-- Contrast -->
-        <div class="control-row">
-          <div class="control-header">
-            <span class="control-label">Kontras</span>
-            <span class="control-value" id="contrast-val">100%</span>
-          </div>
-          <input type="range" id="contrast" min="50" max="150" value="100" oninput="updateFilter()">
-        </div>
-
-        <!-- Vignette -->
-        <div class="control-row">
-          <div class="control-header">
-            <span class="control-label">Vignette</span>
-            <span class="control-value" id="vignette-val">0%</span>
-          </div>
-          <input type="range" id="vignette" min="0" max="100" value="0" oninput="updateFilter()">
-        </div>
-
-        <div class="divider"></div>
-
-        <!--Info Determinan -->
-        <p class="section-label">Matriks Transformasi (Determinan)</p>
-        <div class="det-card">
-          <div class="det-header">
-            <span class="det-badge" id="mode-badge">Sepia</span>
-          </div>
-          <div class="matrix-display" id="matrix-display">
-            [ 0.393  0.769  0.189 ]<br>
-            [ 0.349  0.686  0.168 ]<br>
-            [ 0.272  0.534  0.131 ]
-          </div>
-          <div class="det-result">
-            <span class="det-label">det(M) =</span>
-            <span class="det-value" id="det-value">0.000000</span>
-          </div>
-          <div class="progress-bar" id="det-bar"></div>
-        </div>
-
-      </div>
-    </div>
-  </aside>
-
-  <!-- panel kanan -->
-  <section class="canvas-panel">
-    <div class="canvas-header">
-      <span class="canvas-title">Hasil</span>
-      <div style="display:flex; align-items:center; gap:10px;">
-        <div class="view-toggle">
-          <button class="view-btn active" onclick="setView('single')">Hasil</button>
-          <button class="view-btn" onclick="setView('compare')">Compare</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="canvas-body" id="canvas-body">
-      <!-- Empty state -->
-      <div class="empty-state" id="empty-state">
-        <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-          <rect x="8" y="12" width="48" height="40" rx="6" stroke="#8B6F47" stroke-width="2"/>
-          <circle cx="24" cy="26" r="5" stroke="#8B6F47" stroke-width="2"/>
-          <path d="M8 42l14-10 10 8 8-6 16 14" stroke="#8B6F47" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <div class="logo-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <circle cx="14" cy="14" r="12" stroke="currentColor" stroke-width="2"/>
+          <circle cx="14" cy="14" r="6" fill="currentColor" opacity="0.4"/>
+          <circle cx="14" cy="14" r="2.5" fill="currentColor"/>
         </svg>
-        <p>Unggah foto untuk memulai<br>eksperimen filter.</p>
       </div>
-
-      <!-- Loading -->
-      <div class="loading-state" id="loading-state">
-        <div class="spinner"></div>
-        <span>Memproses foto...</span>
-      </div>
-
-      <!-- Single view -->
-      <canvas id="preview-canvas"></canvas>
-
-      <!-- Compare view -->
-      <div class="compare-wrap" id="compare-wrap">
-        <div class="compare-item">
-          <span class="compare-label">Asli</span>
-          <canvas id="orig-canvas"></canvas>
-        </div>
-        <div class="compare-item">
-          <span class="compare-label" id="compare-label-text">Sepia</span>
-          <canvas id="filtered-canvas"></canvas>
-        </div>
-      </div>
+      <span class="logo-text">PhotoFilter</span>
     </div>
+    <div class="header-badge">Studio</div>
+  </header>
 
-    <div class="stats-bar" id="stats-bar" style="display:none;">
-      <div class="stat-item">
-        <span class="stat-label">Dimensi</span>
-        <span class="stat-value" id="stat-size">—</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-label">Mode</span>
-        <span class="stat-value" id="stat-mode">—</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-label">Determinan</span>
-        <span class="stat-value" id="stat-det">—</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-label">Format</span>
-        <span class="stat-value" id="stat-format">PNG</span>
-      </div>
-    </div>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-tag">✦ Determinan Filter Engine</div>
+    <h1 class="hero-title">Transform Your<br/><em>Photos Artistically</em></h1>
+    <p class="hero-sub">Upload, filter, fine-tune & download — Sepia, Grayscale, dan lebih banyak efek dalam satu studio.</p>
   </section>
-</main>
 
-<!-- Hidden canvases for processing -->
-<canvas id="original-canvas-hidden" style="display:none;"></canvas>
+  <!-- Main App -->
+  <main class="app-container">
 
-<!-- Toast -->
-<div class="toast" id="toast"></div>
+    <!-- Upload Zone -->
+    <div class="upload-section" id="uploadSection">
+      <div class="upload-zone" id="dropZone">
+        <input type="file" id="fileInput" accept="image/*" hidden />
+        <div class="upload-icon">
+          <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+            <rect x="2" y="2" width="48" height="48" rx="14" stroke="currentColor" stroke-width="2" stroke-dasharray="6 4" opacity="0.5"/>
+            <path d="M26 34V18M26 18L20 24M26 18L32 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M14 38h24" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+          </svg>
+        </div>
+        <p class="upload-title">Seret & Lepas foto di sini</p>
+        <p class="upload-sub">atau</p>
+        <button class="btn-upload" onclick="document.getElementById('fileInput').click()">Pilih dari Perangkat</button>
+        <p class="upload-hint">JPG, PNG, WEBP — maks. 20MB</p>
+      </div>
+    </div>
 
-<script src="script.js"></script>
+    <!-- Studio (hidden until image loaded) -->
+    <div class="studio" id="studio" style="display:none">
+
+      <!-- Canvas Area -->
+      <div class="canvas-area">
+        <div class="canvas-header">
+          <span class="canvas-label" id="activeFilterLabel">Original</span>
+          <div class="canvas-actions">
+            <button class="btn-icon" id="btnReset" title="Reset semua">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8a6 6 0 1 0 1.2-3.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M2 3.5V8H6.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Reset
+            </button>
+            <button class="btn-icon" id="btnNewPhoto">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              Foto Baru
+            </button>
+          </div>
+        </div>
+
+        <!-- Split / Compare View -->
+        <div class="canvas-wrapper" id="canvasWrapper">
+          <canvas id="preview" class="preview-canvas"></canvas>
+          <div class="compare-slider" id="compareSlider" style="display:none">
+            <canvas id="originalLayer" class="compare-layer"></canvas>
+            <div class="compare-divider" id="divider">
+              <div class="divider-handle">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6 4l-4 5 4 5M12 4l4 5-4 5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="canvas-footer">
+          <span class="img-info" id="imgInfo">—</span>
+          <button class="btn-compare" id="btnCompare">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Bandingkan
+          </button>
+        </div>
+      </div>
+
+      <!-- Controls Panel -->
+      <div class="controls-panel">
+
+        <!-- Filter Presets -->
+        <div class="section-block">
+          <div class="section-head">
+            <span class="section-title">Filter Preset</span>
+            <span class="section-badge" id="currentFilter">Original</span>
+          </div>
+          <div class="filter-grid" id="filterGrid">
+            <!-- injected by JS -->
+          </div>
+        </div>
+
+        <!-- Fine-tune Sliders -->
+        <div class="section-block">
+          <div class="section-head">
+            <span class="section-title">Fine-Tune</span>
+            <button class="btn-micro" id="btnResetSliders">Reset Sliders</button>
+          </div>
+          <div class="sliders-list" id="sliderList">
+            <!-- injected by JS -->
+          </div>
+        </div>
+
+        <!-- Blend Mode -->
+        <div class="section-block">
+          <div class="section-head">
+            <span class="section-title">Blend & Vignette</span>
+          </div>
+          <div class="blend-row">
+            <label class="slider-label">Intensitas</label>
+            <div class="slider-row">
+              <input type="range" id="blendIntensity" min="0" max="100" value="100" class="range-input" />
+              <span class="slider-val" id="blendVal">100%</span>
+            </div>
+          </div>
+          <div class="blend-row" style="margin-top:12px">
+            <label class="slider-label">Vignette</label>
+            <div class="slider-row">
+              <input type="range" id="vignetteAmount" min="0" max="100" value="0" class="range-input" />
+              <span class="slider-val" id="vignetteVal">0%</span>
+            </div>
+          </div>
+          <div class="toggle-row">
+            <span class="slider-label">Grain</span>
+            <label class="toggle-switch">
+              <input type="checkbox" id="grainToggle" />
+              <span class="toggle-thumb"></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Export -->
+        <div class="section-block export-block">
+          <div class="section-head">
+            <span class="section-title">Export</span>
+          </div>
+          <div class="export-options">
+            <div class="export-format">
+              <label class="slider-label">Format</label>
+              <div class="format-tabs" id="formatTabs">
+                <button class="fmt-btn active" data-fmt="jpeg">JPEG</button>
+                <button class="fmt-btn" data-fmt="png">PNG</button>
+                <button class="fmt-btn" data-fmt="webp">WEBP</button>
+              </div>
+            </div>
+            <div class="export-quality">
+              <label class="slider-label">Kualitas</label>
+              <div class="slider-row">
+                <input type="range" id="qualityRange" min="10" max="100" value="90" class="range-input" />
+                <span class="slider-val" id="qualityVal">90%</span>
+              </div>
+            </div>
+          </div>
+          <button class="btn-download" id="btnDownload">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 3v9M5 8l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 14h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Unduh Foto
+          </button>
+          <button class="btn-copy" id="btnCopyClipboard">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="5" y="5" width="9" height="9" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M11 5V3a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            Salin ke Clipboard
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Toast notification -->
+    <div class="toast" id="toast"></div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <span>FiltraLens © 2025 — Photo Filter Studio</span>
+    <span class="footer-dot">✦</span>
+    <span>Semua pemrosesan dilakukan di browser Anda</span>
+  </footer>
+
+  <script src="app.js"></script>
 </body>
 </html>
