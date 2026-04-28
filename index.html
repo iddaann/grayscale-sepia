@@ -1,185 +1,303 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Milky Sepia Animated</title>
-
-<script src="https://cdn.tailwindcss.com"></script>
-
-<style>
-  body {
-    background: #FDF8F3;
-    color: #1A1A1A;
-    font-family: 'Inter', sans-serif;
-    overflow-x: hidden;
-  }
-
-  .grid-bg {
-    background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
-    background-size: 40px 40px;
-  }
-
-  /* reveal animation */
-  .reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  .reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* button hover */
-  .btn {
-    transition: all 0.3s ease;
-  }
-
-  .btn:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-  }
-
-  /* card hover */
-  .card {
-    transition: all 0.4s ease;
-  }
-
-  .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-  }
-
-</style>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Photo Filer</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KROMA — Photo Filter Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="LandingPage.css">
 </head>
-
 <body>
 
-<!-- header -->
-<header class="flex justify-between items-center px-12 py-6 border-b border-black/10 reveal">
-  <h1 class="text-lg font-semibold tracking-wide">KROMA</h1>
-  <button class="btn bg-[#E85D26] text-white px-4 py-2 rounded-md text-sm">
-    <a href="FilterPage.html">Get Started</a>
-  </button>
-</header>
-
-<!-- main content -->
-<section class="grid-bg text-center py-36 px-6">
-
-  <p class="reveal text-sm text-black/40 mb-4 tracking-wide">
-    SIMPLE. SOFT. ELEGANT.
-  </p>
-
-  <h2 class="reveal text-5xl md:text-7xl font-bold leading-tight">
-    Minimal Design.<br>
-    <span class="text-[#E85D26]">Warm Experience.</span>
-  </h2>
-
-  <p class="reveal mt-6 text-black/60 max-w-xl mx-auto">
-    A soft grayscale interface blended with milky sepia tones
-    for a calm and premium digital experience.
-  </p>
-
-  <div class="reveal mt-10 flex justify-center gap-4">
-    <button class="btn bg-[#E85D26] text-white px-6 py-3 rounded-md font-medium">
-      <a href="FilterPage.html">Get Started</a>
-    </button>
-
-    <button class="btn border border-black/20 px-6 py-3 rounded-md">
-      Learn More →
-    </button>
+  <!-- ══ INTRO CURTAIN ══════════════════════════════════════ -->
+  <div class="page-curtain" id="pageCurtain">
+    <div class="curtain-top"></div>
+    <div class="curtain-bottom"></div>
+  </div>
+  <div class="curtain-logo" id="curtainLogo">
+    <div class="curtain-logo-icon">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+        <circle cx="14" cy="14" r="12" stroke="currentColor" stroke-width="2"/>
+        <circle cx="14" cy="14" r="6" fill="currentColor" opacity="0.4"/>
+        <circle cx="14" cy="14" r="2.5" fill="currentColor"/>
+      </svg>
+    </div>
+    <span>KROMA</span>
+    <div class="curtain-line"></div>
   </div>
 
-</section>
+  <!-- ══ NAVBAR ════════════════════════════════════════════ -->
+  <header id="navbar">
+    <div class="logo-navbar">
 
-<!-- FEATURES -->
-<section class="py-24 px-12 border-t border-black/10">
-  <div class="grid md:grid-cols-3 gap-12 text-center">
-
-    <div class="card reveal">
-      <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-[#B08968]/20 flex items-center justify-center text-xl">
-        ⚡
+    <div class="logo-icon">
+      <div class="bars">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
-      <h3 class="text-lg font-semibold">Clean Interface</h3>
-      <p class="text-black/60 mt-2">Soft, minimal, and distraction-free.</p>
     </div>
 
-    <div class="card reveal">
-      <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-[#B08968]/20 flex items-center justify-center text-xl">
-        ☕
-      </div>
-      <h3 class="text-lg font-semibold">Milky Sepia Tone</h3>
-      <p class="text-black/60 mt-2">Warm like coffee with a creamy feel.</p>
-    </div>
-
-    <div class="card reveal">
-      <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-[#B08968]/20 flex items-center justify-center text-xl">
-        🚀
-      </div>
-      <h3 class="text-lg font-semibold">Smooth Experience</h3>
-      <p class="text-black/60 mt-2">Comfortable UI for long usage.</p>
+    <div class="logo-text">
+      KR<span>O</span>MA
     </div>
 
   </div>
-</section>
+    <nav data-anim="slide-up" data-delay="200">
+      <a href="#features">Fitur</a>
+      <a href="#filters">Filter</a>
+      <a href="#preview">Preview</a>
+      <a href="#cta">Mulai</a>
+    </nav>
+    <a href="FilterPage.html" class="btn-nav btn" data-anim="slide-right" data-delay="300">Buka Studio →</a>
+  </header>
 
-<!-- PREVIEW -->
-<section class="py-24 px-12 border-t border-black/10 text-center reveal">
+  <!-- ══ HERO ══════════════════════════════════════════════ -->
+  <section class="hero grid-bg">
+    <div class="hero-tag" data-anim="pop" data-delay="400">✦ Determinan Filter Engine</div>
+    <h2 data-anim="slide-up" data-delay="500">Minimal Design.<br><em>Warm Experience.</em></h2>
+    <p data-anim="fade-blur" data-delay="600">Antarmuka grayscale lembut dipadukan nada sepia milky — filter foto artistik langsung di browser, tanpa upload ke server.</p>
+    <div class="hero-actions" data-anim="slide-up" data-delay="700">
+      <a href="FilterPage.html" class="btn-primary btn">Mulai Sekarang</a>
+      <a href="#features" class="btn-secondary">Pelajari Fitur →</a>
+    </div>
+    <div class="filter-badges" data-anim="zoom-in" data-delay="800">
+      <span class="badge float-a">Grayscale</span>
+      <span class="badge badge-warm float-b">Sepia</span>
+      <span class="badge float-a" style="animation-delay:0.4s">Vintage</span>
+      <span class="badge badge-warm float-b" style="animation-delay:1.2s">Noir</span>
+      <span class="badge float-a" style="animation-delay:0.8s">Chrome</span>
+      <span class="badge">+ 7 lainnya</span>
+    </div>
+  </section>
 
-  <h2 class="text-3xl font-semibold mb-12">Preview</h2>
+  <!-- ══ FEATURES ══════════════════════════════════════════ -->
+  <section class="features" id="features">
+    <div class="section-label">
+      <div class="hero-tag" data-anim="pop">✦ Mengapa KROMA</div>
+      <h2 data-anim="flip-up" data-delay="100">Semua yang kamu butuhkan<br/>dalam satu studio</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card" data-anim="slide-left" data-delay="100">
+        <div class="feature-icon">🎨</div>
+        <h3>12 Filter Preset</h3>
+        <p>Grayscale, Sepia, Vintage, Noir, Chrome, Forest dan lainnya — preview thumbnail langsung saat dipilih.</p>
+      </div>
+      <div class="feature-card" data-anim="slide-up" data-delay="200">
+        <div class="feature-icon">🎚️</div>
+        <h3>Fine-Tune Presisi</h3>
+        <p>5 slider independen: Kecerahan, Kontras, Saturasi, Kehangatan, dan Pudar untuk kontrol penuh hasil akhir.</p>
+      </div>
+      <div class="feature-card" data-anim="slide-right" data-delay="300">
+        <div class="feature-icon">⇆</div>
+        <h3>Compare Mode</h3>
+        <p>Geser divider untuk bandingkan foto asli dan hasil filter secara real-time langsung di kanvas.</p>
+      </div>
+      <div class="feature-card" data-anim="slide-left" data-delay="200">
+        <div class="feature-icon">⬇️</div>
+        <h3>Export Fleksibel</h3>
+        <p>Unduh sebagai JPEG, PNG, atau WEBP dengan kontrol kualitas. Salin ke clipboard juga tersedia.</p>
+      </div>
+      <div class="feature-card" data-anim="slide-up" data-delay="300">
+        <div class="feature-icon">🌑</div>
+        <h3>Vignette & Grain</h3>
+        <p>Tambahkan efek vignette di sudut foto dan film grain analog untuk nuansa klasik yang autentik.</p>
+      </div>
+      <div class="feature-card" data-anim="slide-right" data-delay="400">
+        <div class="feature-icon">🔒</div>
+        <h3>100% Di Browser</h3>
+        <p>Tidak ada server, tidak ada upload. Fotomu tidak pernah keluar dari perangkatmu — privasi terjaga.</p>
+      </div>
+    </div>
+  </section>
 
-  <div class="card bg-[#EAE0D5] border border-black/10 rounded-xl p-10">
-    <p class="text-black/40">Your product preview here</p>
-  </div>
+  <!-- ══ FILTER SHOWCASE ════════════════════════════════════ -->
+  <section class="showcase" id="filters">
+    <div class="section-label">
+      <div class="hero-tag" data-anim="pop">✦ Filter Gallery</div>
+      <h2 data-anim="flip-up" data-delay="100">Pilih gaya,<br/>
+        <em style="font-style:italic;background:linear-gradient(135deg,#E85D26,#C4483E);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">ekspresikan dirimu</em>
+      </h2>
+    </div>
+    <div class="showcase-grid">
+      <div class="showcase-item sc-original"  data-label="Original"  data-anim="zoom-in" data-delay="100"></div>
+      <div class="showcase-item sc-grayscale" data-label="Grayscale" data-anim="zoom-in" data-delay="200"></div>
+      <div class="showcase-item sc-sepia"     data-label="Sepia"     data-anim="zoom-in" data-delay="300"></div>
+      <div class="showcase-item sc-vintage"   data-label="Vintage"   data-anim="zoom-in" data-delay="400"></div>
+      <div class="showcase-item sc-noir"      data-label="Noir"      data-anim="zoom-in" data-delay="500"></div>
+      <div class="showcase-item sc-cool"      data-label="Cool"      data-anim="zoom-in" data-delay="600"></div>
+    </div>
+    <div style="text-align:center;" data-anim="slide-up" data-delay="400">
+      <a href="FilterPage.html" class="btn-primary btn">Coba Semua Filter →</a>
+    </div>
+  </section>
 
-</section>
+  <!-- ══ PREVIEW SECTION ═══════════════════════════════════ -->
+  <section class="preview-section" id="preview">
 
-<!-- CTA -->
-<section class="py-28 text-center border-t border-black/10 reveal">
+    <div class="section-label">
+      <div class="hero-tag" data-anim="pop">✦ Lihat Hasilnya</div>
+      <h2 data-anim="flip-up" data-delay="100">Before & After<br/>
+        <em style="font-style:italic;background:linear-gradient(135deg,#E85D26,#C4483E);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">secara langsung</em>
+      </h2>
+      <p style="color:var(--muted);font-size:15px;margin-top:12px;line-height:1.6;" data-anim="fade-blur" data-delay="200">
+        Geser slider untuk membandingkan foto asli dengan hasil filter.<br/>Klik tab di bawah untuk mengganti filter.
+      </p>
+    </div>
 
-  <h2 class="text-4xl md:text-5xl font-bold">
-    Build something <span class="text-[#E85D26]">calm & beautiful</span>
-  </h2>
+    <!-- Before/After Slider -->
+    <div class="ba-container" data-anim="flip-up" data-delay="100">
+      <div class="ba-tabs" id="baTabs">
+        <button class="ba-tab" data-filter="f-grayscale">Grayscale</button>
+        <button class="ba-tab active" data-filter="f-sepia">Sepia</button>
+        <button class="ba-tab" data-filter="f-warm">Warm</button>
+        <button class="ba-tab" data-filter="f-cool">Cool</button>
+        <button class="ba-tab" data-filter="f-vintage">Vintage</button>
+        <button class="ba-tab" data-filter="f-noir">Noir</button>
+        <button class="ba-tab" data-filter="f-fade">Fade</button>
+        <button class="ba-tab" data-filter="f-sunset">Sunset</button>
+      </div>
+      <div class="ba-wrapper" id="baWrapper">
+        <div class="ba-original"></div>
+        <div class="ba-filtered f-sepia" id="baFiltered"></div>
+        <div class="ba-label ba-label-l" id="baLabelL">Sepia</div>
+        <div class="ba-label ba-label-r">Original</div>
+        <div class="ba-divider" id="baDivider">
+          <div class="ba-handle">⇆</div>
+        </div>
+      </div>
+      <p class="ba-hint">← Geser untuk membandingkan →</p>
+    </div>
 
-  <p class="mt-4 text-black/60">
-    Designed for comfort, elegance, and focus.
-  </p>
+    <!-- Sample Grid -->
+    <div class="sample-section">
+      <p class="sample-title" data-anim="slide-up">Semua Filter dalam Sekali Pandang</p>
+      <div class="sample-grid">
+        <div class="sample-card f-original"  data-anim="pop" data-delay="100"><div class="sample-img"></div><div class="sample-name">Original</div></div>
+        <div class="sample-card f-grayscale" data-anim="pop" data-delay="150"><div class="sample-img"></div><div class="sample-name">Grayscale</div></div>
+        <div class="sample-card f-sepia"     data-anim="pop" data-delay="200"><div class="sample-img"></div><div class="sample-name">Sepia</div></div>
+        <div class="sample-card f-warm"      data-anim="pop" data-delay="250"><div class="sample-img"></div><div class="sample-name">Warm</div></div>
+        <div class="sample-card f-cool"      data-anim="pop" data-delay="300"><div class="sample-img"></div><div class="sample-name">Cool</div></div>
+        <div class="sample-card f-vintage"   data-anim="pop" data-delay="350"><div class="sample-img"></div><div class="sample-name">Vintage</div></div>
+        <div class="sample-card f-noir"      data-anim="pop" data-delay="400"><div class="sample-img"></div><div class="sample-name">Noir</div></div>
+        <div class="sample-card f-fade"      data-anim="pop" data-delay="450"><div class="sample-img"></div><div class="sample-name">Fade</div></div>
+      </div>
+      <div style="margin-top:40px;" data-anim="slide-up" data-delay="300">
+        <a href="FilterPage.html" class="btn-primary btn" style="font-size:15px;">Coba dengan Foto Sendiri →</a>
+      </div>
+    </div>
 
-  <button class="btn mt-8 bg-[#E85D26] text-white px-8 py-3 rounded-md">
-    <a href="FilterPage.html">Start Now</a>
-  </button>
+  </section>
 
-</section>
+  <!-- ══ CTA ═══════════════════════════════════════════════ -->
+  <section class="cta-section" id="cta">
+    <h2 data-anim="flip-up">Bangun sesuatu yang <em>tenang & indah</em></h2>
+    <p data-anim="fade-blur" data-delay="200">Dirancang untuk kenyamanan, keanggunan, dan fokus.<br/>Tidak perlu daftar — langsung pakai, gratis selamanya.</p>
+    <div data-anim="zoom-in" data-delay="300">
+      <a href="FilterPage.html" class="btn-primary btn" style="font-size:16px;padding:16px 40px;border-radius:14px;">
+        Buka KROMA Studio →
+      </a>
+    </div>
+    <p class="cta-note" data-anim="slide-up" data-delay="400">⌨ Shortcut: D (download) · R (reset) · C (compare)</p>
+  </section>
 
-<!-- FOOTER -->
-<footer class="py-10 text-center text-black/40 border-t border-black/10 reveal">
-  © 2026 - kelompok 5
-</footer>
+  <!-- ══ FOOTER ════════════════════════════════════════════ -->
+  <footer data-anim="slide-up">
+    <span>© 2026 KROMA — Photo Filter Studio</span>
+    <span class="footer-dot">✦</span>
+    <a href="FilterPage.html">Buka Studio</a>
+    <span class="footer-dot">✦</span>
+    <span>Semua pemrosesan dilakukan di browser Anda</span>
+  </footer>
 
-<!-- JS ANIMATION -->
-<script>
-  const reveals = document.querySelectorAll(".reveal");
+  <script>
+    // ══ INTRO CURTAIN ══════════════════════════════════════
+    window.addEventListener('load', () => {
+      // Tunggu sebentar lalu buka curtain
+      setTimeout(() => {
+        document.body.classList.add('curtain-open');
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.classList.add("active");
-      }
+        // Setelah curtain hilang, trigger navbar + hero animations
+        setTimeout(() => {
+          document.getElementById('pageCurtain').style.display = 'none';
+          document.getElementById('curtainLogo').style.display = 'none';
+          triggerInitialAnims();
+        }, 950);
+      }, 900);
     });
-  }, {
-    threshold: 0.1
-  });
 
-  reveals.forEach(el => observer.observe(el));
-</script>
+    // Trigger animasi navbar + hero setelah curtain selesai
+    function triggerInitialAnims() {
+      const initial = document.querySelectorAll('header [data-anim], .hero [data-anim]');
+      initial.forEach(el => {
+        const delay = parseInt(el.dataset.delay || 0);
+        setTimeout(() => el.classList.add('anim-in'), delay);
+      });
+    }
+
+    // ══ NAVBAR SHRINK ══════════════════════════════════════
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // ══ SCROLL ANIMATIONS ══════════════════════════════════
+    // Only observe elements NOT in header or hero (those fire on load)
+    const scrollAnimEls = document.querySelectorAll(
+      'section:not(.hero) [data-anim], footer[data-anim]'
+    );
+
+    const animObs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el    = entry.target;
+          const delay = parseInt(el.dataset.delay || 0);
+          setTimeout(() => el.classList.add('anim-in'), delay);
+          animObs.unobserve(el); // fire once only
+        }
+      });
+    }, { threshold: 0.12 });
+
+    scrollAnimEls.forEach(el => animObs.observe(el));
+
+    // ══ BEFORE / AFTER SLIDER ══════════════════════════════
+    const baWrapper  = document.getElementById('baWrapper');
+    const baFiltered = document.getElementById('baFiltered');
+    const baDivider  = document.getElementById('baDivider');
+    const baLabelL   = document.getElementById('baLabelL');
+    const baTabs     = document.getElementById('baTabs');
+
+    let dragging = false;
+    let pos = 50;
+
+    function setPos(x) {
+      const rect = baWrapper.getBoundingClientRect();
+      pos = Math.max(3, Math.min(97, (x - rect.left) / rect.width * 100));
+      baFiltered.style.clipPath = `inset(0 ${100 - pos}% 0 0)`;
+      baDivider.style.left      = pos + '%';
+    }
+
+    baWrapper.addEventListener('mousedown', e => { dragging = true; setPos(e.clientX); });
+    document.addEventListener('mouseup',   ()  => { dragging = false; });
+    document.addEventListener('mousemove', e  => { if (dragging) setPos(e.clientX); });
+
+    baWrapper.addEventListener('touchstart', e => { dragging = true; setPos(e.touches[0].clientX); }, { passive: true });
+    document.addEventListener('touchend',   ()  => { dragging = false; });
+    baWrapper.addEventListener('touchmove',  e  => { if (dragging) setPos(e.touches[0].clientX); }, { passive: true });
+
+    baTabs.querySelectorAll('.ba-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        baTabs.querySelectorAll('.ba-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        baFiltered.className = 'ba-filtered ' + tab.dataset.filter;
+        baLabelL.textContent = tab.textContent;
+        pos = 50;
+        baFiltered.style.clipPath = `inset(0 50% 0 0)`;
+        baDivider.style.left = '50%';
+      });
+    });
+  </script>
 
 </body>
 </html>

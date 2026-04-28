@@ -90,20 +90,77 @@ body {
   display: flex; align-items: center; justify-content: space-between;
   padding: 20px 40px;
 }
-.logo { display: flex; align-items: center; gap: 10px; }
-.logo-icon {
-  width: 40px; height: 40px;
-  background: var(--accent1);
-  border-radius: 10px;
-  display: flex; align-items: center; justify-content: center;
-  color: white;
-}
-.logo-text {
-  font-family: var(--font-display);
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: -0.3px;
-}
+  .logo-navbar{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+
+  .logo-navbar .logo-icon{
+    width:45px;
+    height:45px;
+    border:3px solid #222;
+    border-radius:12px;
+    position:relative;
+  }
+
+  .logo-navbar .logo-icon::before{
+    content:'';
+    position:absolute;
+    width:25px;
+    height:25px;
+    border:3px solid #222;
+    border-radius:50%;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+  }
+
+  .logo-navbar .logo-icon::after{
+    content:'';
+    position:absolute;
+    width:6px;
+    height:6px;
+    background:#E85D26;
+    border-radius:50%;
+    top:5px;
+    right:5px;
+  }
+
+  .logo-navbar .bars{
+    position:absolute;
+    right:-10px;
+    top:50%;
+    transform:translateY(-50%);
+  }
+
+  .logo-navbar .bars span{
+    display:block;
+    width:10px;
+    height:6px;
+    margin:3px 0;
+    border-radius:3px;
+    background:#ddd;
+  }
+
+  .logo-navbar .bars span:nth-child(3){
+    background:#E85D26;
+  }
+
+  .logo-navbar .bars span:nth-child(4){
+    background:#333;
+  }
+
+  .logo-navbar .logo-text{
+    font-size:18px;
+    font-weight:bold;
+    letter-spacing:4px;
+  }
+
+  .logo-navbar .logo-text span{
+    color:#E85D26;
+  }
+
 .header-badge {
   font-size: 11px;
   font-weight: 600;
