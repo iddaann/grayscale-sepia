@@ -450,6 +450,9 @@
       box-shadow: 0 28px 72px rgba(0,0,0,0.14);
       cursor: ew-resize; user-select: none;
     }
+    .ba-wrapper img{
+      display: block; width: 100%; height: auto;
+    }
     /* Base "photo" layer — original */
     .ba-original {
       width: 100%; aspect-ratio: 16/8;
@@ -467,7 +470,7 @@
       clip-path: inset(0 50% 0 0);
     }
     /* Each filter applied via CSS */
-    .ba-filtered.f-grayscale { background: inherit; filter: grayscale(1) contrast(1.08); }
+    .ba-filtered.f-grayscale { filter: grayscale(1) contrast(1.08); }
     .ba-filtered.f-sepia     { filter: sepia(1) contrast(1.05) brightness(1.03); }
     .ba-filtered.f-warm      { filter: saturate(1.5) hue-rotate(-20deg) brightness(1.1); }
     .ba-filtered.f-cool      { filter: saturate(0.8) hue-rotate(30deg) brightness(1.06); }
