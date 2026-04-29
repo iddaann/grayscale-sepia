@@ -161,6 +161,17 @@ body {
     color:#E85D26;
   }
 
+  .btn-nav {
+      background: var(--accent1); color: white; border: none;
+      padding: 10px 22px; border-radius: 100px;
+      font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600;
+      box-shadow: 0 3px 12px rgba(232,93,38,0.3);
+      text-decoration: none; display: inline-block;
+      transition: all 0.3s;
+      
+    }
+    .btn-nav:hover { background: var(--accent3); transform: translateY(-2px); color: #ddd; }
+
 .header-badge {
   font-size: 11px;
   font-weight: 600;

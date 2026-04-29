@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KROMA — Photo Filter Studio</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="LandingPage.css">
+  <link rel="stylesheet" href="./style/LandingPage.css">
 </head>
 <body>
 
@@ -48,19 +48,19 @@
       <a href="#features">Fitur</a>
       <a href="#filters">Filter</a>
       <a href="#preview">Preview</a>
-      <a href="#cta">Mulai</a>
+      <a href="about.html">About Us</a>
     </nav>
-    <a href="FilterPage.html" class="btn-nav btn" data-anim="slide-right" data-delay="300">Buka Studio →</a>
+    <a href="FilterPage.html" class="btn-nav btn" data-anim="slide-right" data-delay="300">Open Studio →</a>
   </header>
 
   <!-- ══ HERO ══════════════════════════════════════════════ -->
   <section class="hero grid-bg">
-    <div class="hero-tag" data-anim="pop" data-delay="400">✦ Determinan Filter Engine</div>
-    <h2 data-anim="slide-up" data-delay="500">Minimal Design.<br><em>Warm Experience.</em></h2>
-    <p data-anim="fade-blur" data-delay="600">Antarmuka grayscale lembut dipadukan nada sepia milky — filter foto artistik langsung di browser, tanpa upload ke server.</p>
+    <div class="hero-tag" data-anim="pop" data-delay="400">✦ With Determinan</div>
+    <h2 data-anim="slide-up" data-delay="500">KROMA<br><em> Studio</em></h2>
+    <p data-anim="fade-blur" data-delay="600">Bebas pilih filter dan custom foto sesuai keinginan.</p>
     <div class="hero-actions" data-anim="slide-up" data-delay="700">
-      <a href="FilterPage.html" class="btn-primary btn">Mulai Sekarang</a>
-      <a href="#features" class="btn-secondary">Pelajari Fitur →</a>
+      <a href="FilterPage.html" class="btn-primary btn">Start Now</a>
+      <a href="#features" class="btn-secondary">Learn More →</a>
     </div>
     <div class="filter-badges" data-anim="zoom-in" data-delay="800">
       <span class="badge float-a">Grayscale</span>
@@ -74,62 +74,154 @@
 
   <!-- ══ FEATURES ══════════════════════════════════════════ -->
   <section class="features" id="features">
-    <div class="section-label">
-      <div class="hero-tag" data-anim="pop">✦ Mengapa KROMA</div>
-      <h2 data-anim="flip-up" data-delay="100">Semua yang kamu butuhkan<br/>dalam satu studio</h2>
+  <div class="section-label">
+    <div class="hero-tag" data-anim="pop">✦ kenapa harus KROMA?</div>
+    <h2 data-anim="flip-up" data-delay="100">Semua yang kamu butuhkan<br/>dalam satu studio</h2>
+  </div>
+
+  <div class="features-grid">
+
+    <div class="feature-card" data-anim="slide-left" data-delay="100">
+      <div class="feature-icon">
+        <!-- Palette -->
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2a10 10 0 1 0 0 20c1.5 0 2-.5 2-1.5 0-1.5-2-1.5-2-3s2-2 3.5-2c2 0 3.5-1.5 3.5-3.5A10 10 0 0 0 12 2z"/>
+        </svg>
+      </div>
+      <h3>12 Filter Preset</h3>
+      <p>Grayscale, Sepia, Vintage, Noir, Chrome, Forest dan lainnya — preview thumbnail langsung saat dipilih.</p>
     </div>
-    <div class="features-grid">
-      <div class="feature-card" data-anim="slide-left" data-delay="100">
-        <div class="feature-icon">🎨</div>
-        <h3>12 Filter Preset</h3>
-        <p>Grayscale, Sepia, Vintage, Noir, Chrome, Forest dan lainnya — preview thumbnail langsung saat dipilih.</p>
+
+    <div class="feature-card" data-anim="slide-up" data-delay="200">
+      <div class="feature-icon">
+        <!-- Sliders -->
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="4" y1="21" x2="4" y2="14"/>
+          <line x1="4" y1="10" x2="4" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="12"/>
+          <line x1="12" y1="8" x2="12" y2="3"/>
+          <line x1="20" y1="21" x2="20" y2="16"/>
+          <line x1="20" y1="12" x2="20" y2="3"/>
+          <circle cx="4" cy="12" r="2"/>
+          <circle cx="12" cy="10" r="2"/>
+          <circle cx="20" cy="14" r="2"/>
+        </svg>
       </div>
-      <div class="feature-card" data-anim="slide-up" data-delay="200">
-        <div class="feature-icon">🎚️</div>
-        <h3>Fine-Tune Presisi</h3>
-        <p>5 slider independen: Kecerahan, Kontras, Saturasi, Kehangatan, dan Pudar untuk kontrol penuh hasil akhir.</p>
-      </div>
-      <div class="feature-card" data-anim="slide-right" data-delay="300">
-        <div class="feature-icon">⇆</div>
-        <h3>Compare Mode</h3>
-        <p>Geser divider untuk bandingkan foto asli dan hasil filter secara real-time langsung di kanvas.</p>
-      </div>
-      <div class="feature-card" data-anim="slide-left" data-delay="200">
-        <div class="feature-icon">⬇️</div>
-        <h3>Export Fleksibel</h3>
-        <p>Unduh sebagai JPEG, PNG, atau WEBP dengan kontrol kualitas. Salin ke clipboard juga tersedia.</p>
-      </div>
-      <div class="feature-card" data-anim="slide-up" data-delay="300">
-        <div class="feature-icon">🌑</div>
-        <h3>Vignette & Grain</h3>
-        <p>Tambahkan efek vignette di sudut foto dan film grain analog untuk nuansa klasik yang autentik.</p>
-      </div>
-      <div class="feature-card" data-anim="slide-right" data-delay="400">
-        <div class="feature-icon">🔒</div>
-        <h3>100% Di Browser</h3>
-        <p>Tidak ada server, tidak ada upload. Fotomu tidak pernah keluar dari perangkatmu — privasi terjaga.</p>
-      </div>
+      <h3>Fine-Tune Presisi</h3>
+      <p>5 slider independen: Kecerahan, Kontras, Saturasi, Kehangatan, dan Pudar untuk kontrol penuh hasil akhir.</p>
     </div>
-  </section>
+
+    <div class="feature-card" data-anim="slide-right" data-delay="300">
+      <div class="feature-icon">
+        <!-- Compare -->
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <line x1="12" y1="3" x2="12" y2="21"/>
+        </svg>
+      </div>
+      <h3>Compare Mode</h3>
+      <p>Geser divider untuk bandingkan foto asli dan hasil filter secara real-time langsung di kanvas.</p>
+    </div>
+
+    <div class="feature-card" data-anim="slide-left" data-delay="200">
+      <div class="feature-icon">
+        <!-- Download -->
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+      </div>
+      <h3>Export Fleksibel</h3>
+      <p>Unduh sebagai JPEG, PNG, atau WEBP dengan kontrol kualitas. Salin ke clipboard juga tersedia.</p>
+    </div>
+
+    <div class="feature-card" data-anim="slide-up" data-delay="300">
+      <div class="feature-icon">
+        <!-- Vignette / Circle -->
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <circle cx="12" cy="12" r="4"/>
+        </svg>
+      </div>
+      <h3>Vignette & Grain</h3>
+      <p>Tambahkan efek vignette di sudut foto dan film grain analog untuk nuansa klasik yang autentik.</p>
+    </div>
+
+    <div class="feature-card" data-anim="slide-right" data-delay="400">
+      <div class="feature-icon">
+        <!-- Shield -->
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 3l8 4v5c0 5-3.5 9-8 9s-8-4-8-9V7l8-4z"/>
+        </svg>
+      </div>
+      <h3>100% Di Browser</h3>
+      <p>Tidak ada server, tidak ada upload. Fotomu tidak pernah keluar dari perangkatmu — privasi terjaga.</p>
+    </div>
+
+  </div>
+</section>
 
   <!-- ══ FILTER SHOWCASE ════════════════════════════════════ -->
   <section class="showcase" id="filters">
     <div class="section-label">
-      <div class="hero-tag" data-anim="pop">✦ Filter Gallery</div>
-      <h2 data-anim="flip-up" data-delay="100">Pilih gaya,<br/>
-        <em style="font-style:italic;background:linear-gradient(135deg,#E85D26,#C4483E);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">ekspresikan dirimu</em>
+      <div class="hero-tag" data-anim="pop">✦ Filter showcase</div>
+      <h2 data-anim="flip-up" data-delay="100">bebas pilih filter,<br/>
+        <em style="font-style:italic;background:linear-gradient(135deg,#E85D26,#C4483E);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">gratis!!</em>
       </h2>
     </div>
     <div class="showcase-grid">
-      <div class="showcase-item sc-original"  data-label="Original"  data-anim="zoom-in" data-delay="100"></div>
-      <div class="showcase-item sc-grayscale" data-label="Grayscale" data-anim="zoom-in" data-delay="200"></div>
-      <div class="showcase-item sc-sepia"     data-label="Sepia"     data-anim="zoom-in" data-delay="300"></div>
-      <div class="showcase-item sc-vintage"   data-label="Vintage"   data-anim="zoom-in" data-delay="400"></div>
-      <div class="showcase-item sc-noir"      data-label="Noir"      data-anim="zoom-in" data-delay="500"></div>
-      <div class="showcase-item sc-cool"      data-label="Cool"      data-anim="zoom-in" data-delay="600"></div>
+      <div class="showcase-item sc-original"  data-label="Original"  data-anim="zoom-in" data-delay="100">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Original" loading="lazy"/>
+        <div class="showcase-item-badge">Original</div>
+      </div>
+      <div class="showcase-item sc-grayscale" data-label="Grayscale" data-anim="zoom-in" data-delay="200">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Grayscale" loading="lazy"/>
+        <div class="showcase-item-badge">Grayscale</div>
+      </div>
+      <div class="showcase-item sc-sepia"     data-label="Sepia"     data-anim="zoom-in" data-delay="300">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Sepia" loading="lazy"/>
+        <div class="showcase-item-badge">Sepia</div>
+      </div>
+      <div class="showcase-item sc-vintage"   data-label="Vintage"   data-anim="zoom-in" data-delay="400">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Vintage" loading="lazy"/>
+        <div class="showcase-item-badge">Vintage</div>
+      </div>
+      <div class="showcase-item sc-noir"      data-label="Noir"      data-anim="zoom-in" data-delay="500">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Noir" loading="lazy"/>
+        <div class="showcase-item-badge">Noir</div>
+      </div>
+      <div class="showcase-item sc-cool"      data-label="Cool"      data-anim="zoom-in" data-delay="600">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Cool" loading="lazy"/>
+        <div class="showcase-item-badge">Cool</div>
+      </div>
+      <div class="showcase-item sc-warm"      data-label="Warm"      data-anim="zoom-in" data-delay="600">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Cool" loading="lazy"/>
+        <div class="showcase-item-badge">Warm</div>
+      </div>
+      <div class="showcase-item sc-chrome"      data-label="Chrome"      data-anim="zoom-in" data-delay="600">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Cool" loading="lazy"/>
+        <div class="showcase-item-badge">Chrome</div>
+      </div>
+      <div class="showcase-item sc-fade"      data-label="Fade"      data-anim="zoom-in" data-delay="600">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Cool" loading="lazy"/>
+        <div class="showcase-item-badge">Fade</div>
+      </div>
+      <div class="showcase-item sc-sunset"      data-label="Sunset"      data-anim="zoom-in" data-delay="600">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Cool" loading="lazy"/>
+        <div class="showcase-item-badge">Sunset</div>
+      </div>
+      <div class="showcase-item sc-forest"      data-label="Forest"      data-anim="zoom-in" data-delay="600">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Cool" loading="lazy"/>
+        <div class="showcase-item-badge">Forest</div>
+      </div>
+      <div class="showcase-item sc-invert"      data-label="Invert"      data-anim="zoom-in" data-delay="600">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Cool" loading="lazy"/>
+        <div class="showcase-item-badge">Invert</div>
+      </div>
     </div>
     <div style="text-align:center;" data-anim="slide-up" data-delay="400">
-      <a href="FilterPage.html" class="btn-primary btn">Coba Semua Filter →</a>
+      <a href="FilterPage.html" class="btn-primary btn">Coba Sekarang →</a>
     </div>
   </section>
 
@@ -169,25 +261,6 @@
       </div>
       <p class="ba-hint">← Geser untuk membandingkan →</p>
     </div>
-
-    <!-- Sample Grid -->
-    <div class="sample-section">
-      <p class="sample-title" data-anim="slide-up">Semua Filter dalam Sekali Pandang</p>
-      <div class="sample-grid">
-        <div class="sample-card f-original"  data-anim="pop" data-delay="100"><div class="sample-img"></div><div class="sample-name">Original</div></div>
-        <div class="sample-card f-grayscale" data-anim="pop" data-delay="150"><div class="sample-img"></div><div class="sample-name">Grayscale</div></div>
-        <div class="sample-card f-sepia"     data-anim="pop" data-delay="200"><div class="sample-img"></div><div class="sample-name">Sepia</div></div>
-        <div class="sample-card f-warm"      data-anim="pop" data-delay="250"><div class="sample-img"></div><div class="sample-name">Warm</div></div>
-        <div class="sample-card f-cool"      data-anim="pop" data-delay="300"><div class="sample-img"></div><div class="sample-name">Cool</div></div>
-        <div class="sample-card f-vintage"   data-anim="pop" data-delay="350"><div class="sample-img"></div><div class="sample-name">Vintage</div></div>
-        <div class="sample-card f-noir"      data-anim="pop" data-delay="400"><div class="sample-img"></div><div class="sample-name">Noir</div></div>
-        <div class="sample-card f-fade"      data-anim="pop" data-delay="450"><div class="sample-img"></div><div class="sample-name">Fade</div></div>
-      </div>
-      <div style="margin-top:40px;" data-anim="slide-up" data-delay="300">
-        <a href="FilterPage.html" class="btn-primary btn" style="font-size:15px;">Coba dengan Foto Sendiri →</a>
-      </div>
-    </div>
-
   </section>
 
   <!-- ══ CTA ═══════════════════════════════════════════════ -->
@@ -206,98 +279,10 @@
   <footer data-anim="slide-up">
     <span>© 2026 KROMA — Photo Filter Studio</span>
     <span class="footer-dot">✦</span>
-    <a href="FilterPage.html">Buka Studio</a>
+    <a href="FilterPage.html">Open Studio</a>
     <span class="footer-dot">✦</span>
     <span>Semua pemrosesan dilakukan di browser Anda</span>
   </footer>
-
-  <script>
-    // ══ INTRO CURTAIN ══════════════════════════════════════
-    window.addEventListener('load', () => {
-      // Tunggu sebentar lalu buka curtain
-      setTimeout(() => {
-        document.body.classList.add('curtain-open');
-
-        // Setelah curtain hilang, trigger navbar + hero animations
-        setTimeout(() => {
-          document.getElementById('pageCurtain').style.display = 'none';
-          document.getElementById('curtainLogo').style.display = 'none';
-          triggerInitialAnims();
-        }, 950);
-      }, 900);
-    });
-
-    // Trigger animasi navbar + hero setelah curtain selesai
-    function triggerInitialAnims() {
-      const initial = document.querySelectorAll('header [data-anim], .hero [data-anim]');
-      initial.forEach(el => {
-        const delay = parseInt(el.dataset.delay || 0);
-        setTimeout(() => el.classList.add('anim-in'), delay);
-      });
-    }
-
-    // ══ NAVBAR SHRINK ══════════════════════════════════════
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 50);
-    });
-
-    // ══ SCROLL ANIMATIONS ══════════════════════════════════
-    // Only observe elements NOT in header or hero (those fire on load)
-    const scrollAnimEls = document.querySelectorAll(
-      'section:not(.hero) [data-anim], footer[data-anim]'
-    );
-
-    const animObs = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const el    = entry.target;
-          const delay = parseInt(el.dataset.delay || 0);
-          setTimeout(() => el.classList.add('anim-in'), delay);
-          animObs.unobserve(el); // fire once only
-        }
-      });
-    }, { threshold: 0.12 });
-
-    scrollAnimEls.forEach(el => animObs.observe(el));
-
-    // ══ BEFORE / AFTER SLIDER ══════════════════════════════
-    const baWrapper  = document.getElementById('baWrapper');
-    const baFiltered = document.getElementById('baFiltered');
-    const baDivider  = document.getElementById('baDivider');
-    const baLabelL   = document.getElementById('baLabelL');
-    const baTabs     = document.getElementById('baTabs');
-
-    let dragging = false;
-    let pos = 50;
-
-    function setPos(x) {
-      const rect = baWrapper.getBoundingClientRect();
-      pos = Math.max(3, Math.min(97, (x - rect.left) / rect.width * 100));
-      baFiltered.style.clipPath = `inset(0 ${100 - pos}% 0 0)`;
-      baDivider.style.left      = pos + '%';
-    }
-
-    baWrapper.addEventListener('mousedown', e => { dragging = true; setPos(e.clientX); });
-    document.addEventListener('mouseup',   ()  => { dragging = false; });
-    document.addEventListener('mousemove', e  => { if (dragging) setPos(e.clientX); });
-
-    baWrapper.addEventListener('touchstart', e => { dragging = true; setPos(e.touches[0].clientX); }, { passive: true });
-    document.addEventListener('touchend',   ()  => { dragging = false; });
-    baWrapper.addEventListener('touchmove',  e  => { if (dragging) setPos(e.touches[0].clientX); }, { passive: true });
-
-    baTabs.querySelectorAll('.ba-tab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        baTabs.querySelectorAll('.ba-tab').forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        baFiltered.className = 'ba-filtered ' + tab.dataset.filter;
-        baLabelL.textContent = tab.textContent;
-        pos = 50;
-        baFiltered.style.clipPath = `inset(0 50% 0 0)`;
-        baDivider.style.left = '50%';
-      });
-    });
-  </script>
-
+  <script src="./script/landingpage.js"></script>
 </body>
 </html>

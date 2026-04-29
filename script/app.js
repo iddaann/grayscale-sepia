@@ -529,7 +529,7 @@ document.addEventListener('touchend', () => { compareDrag = false; });
 divider.addEventListener('touchmove', e => {
   e.preventDefault();
   if (!state.comparing) return;
-  const pr  = preview.getBoundingClientRect();
+  const pr  = preview.getBoundingClientRect(); 
   const wr  = preview.parentElement.getBoundingClientRect();
   comparePos = Math.max(2, Math.min(98, (e.touches[0].clientX - pr.left) / pr.width * 100));
   originalLayer.style.clipPath = `inset(0 ${100 - comparePos}% 0 0)`;
