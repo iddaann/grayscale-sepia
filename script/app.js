@@ -388,13 +388,21 @@ function applyVignette(c, w, h, strength) {
 }
 
 function applyGrain(c, w, h) {
-  const id = c.createImageData(w, h);
-  const d = id.data;
-  const amt = 28;
+  // Ambil pixel foto yang sudah dirender
+  const id  = c.getImageData(0, 0, w, h);
+  const d   = id.data;
+  const amt = 38; // kekuatan grain — naikkan jika ingin lebih kuat
+
   for (let i = 0; i < d.length; i += 4) {
+    // Random noise berbeda per pixel, antara -amt dan +amt
     const n = (Math.random() * 2 - 1) * amt;
-    d[i] = clamp(n); d[i+1] = clamp(n); d[i+2] = clamp(n); d[i+3] = 60;
+    d[i]   = clamp(d[i]   + n);
+    d[i+1] = clamp(d[i+1] + n);
+    d[i+2] = clamp(d[i+2] + n);
+    // Alpha (d[i+3]) tidak diubah
   }
+
+  // Tulis balik — foto tetap terlihat, grain sudah menyatu
   c.putImageData(id, 0, 0);
 }
 
@@ -529,7 +537,7 @@ document.addEventListener('touchend', () => { compareDrag = false; });
 divider.addEventListener('touchmove', e => {
   e.preventDefault();
   if (!state.comparing) return;
-  const pr  = preview.getBoundingClientRect(); 
+  const pr  = preview.getBoundingClientRect();
   const wr  = preview.parentElement.getBoundingClientRect();
   comparePos = Math.max(2, Math.min(98, (e.touches[0].clientX - pr.left) / pr.width * 100));
   originalLayer.style.clipPath = `inset(0 ${100 - comparePos}% 0 0)`;
