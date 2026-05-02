@@ -76,7 +76,7 @@
   <section class="features" id="features">
   <div class="section-label">
     <div class="hero-tag" data-anim="pop">✦ kenapa harus KROMA?</div>
-    <h2 data-anim="flip-up" data-delay="100">Semua yang kamu butuhkan<br/>dalam satu studio</h2>
+    <h2 data-anim="flip-up" data-delay="100">Semua yang kamu butuhkan<br/>ada dalam satu studio</h2>
   </div>
 
   <div class="features-grid">
@@ -165,63 +165,94 @@
   <!-- ══ FILTER SHOWCASE ════════════════════════════════════ -->
   <section class="showcase" id="filters">
     <div class="section-label">
-      <div class="hero-tag" data-anim="pop">✦ Filter showcase</div>
-      <h2 data-anim="flip-up" data-delay="100">bebas pilih filter,<br/>
-        <em style="font-style:italic;background:linear-gradient(135deg,#E85D26,#C4483E);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">gratis!!</em>
+      <div class="hero-tag" data-anim="pop">✦ Filter Gallery</div>
+      <h2 data-anim="flip-up" data-delay="100">Pilih gaya,<br/>
+        <em style="font-style:italic;background:linear-gradient(135deg,#E85D26,#C4483E);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">ekspresikan dirimu</em>
       </h2>
     </div>
-    <div class="showcase-grid">
-      <div class="showcase-item sc-original"  data-label="Original"  data-anim="zoom-in" data-delay="100">
-        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Original" loading="lazy"/>
-        <div class="showcase-item-badge">Original</div>
+ 
+    <!-- Carousel -->
+    <div class="carousel-outer" data-anim="fade-blur" data-delay="200">
+      <div class="carousel-track-wrap" id="carouselWrap">
+        <div class="carousel-track" id="carouselTrack">
+ 
+          <div class="showcase-item sc-original">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Original" loading="lazy"/>
+            <div class="showcase-item-badge">Original</div>
+          </div>
+          <div class="showcase-item sc-grayscale">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Grayscale" loading="lazy"/>
+            <div class="showcase-item-badge">Grayscale</div>
+          </div>
+          <div class="showcase-item sc-sepia">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Sepia" loading="lazy"/>
+            <div class="showcase-item-badge">Sepia</div>
+          </div>
+          <div class="showcase-item sc-warm">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Warm" loading="lazy"/>
+            <div class="showcase-item-badge">Warm</div>
+          </div>
+          <div class="showcase-item sc-cool">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Cool" loading="lazy"/>
+            <div class="showcase-item-badge">Cool</div>
+          </div>
+          <div class="showcase-item sc-vintage">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Vintage" loading="lazy"/>
+            <div class="showcase-item-badge">Vintage</div>
+          </div>
+          <div class="showcase-item sc-noir">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Noir" loading="lazy"/>
+            <div class="showcase-item-badge">Noir</div>
+          </div>
+          <div class="showcase-item sc-chrome">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Chrome" loading="lazy"/>
+            <div class="showcase-item-badge">Chrome</div>
+          </div>
+          <div class="showcase-item sc-fade">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Fade" loading="lazy"/>
+            <div class="showcase-item-badge">Fade</div>
+          </div>
+          <div class="showcase-item sc-sunset">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Sunset" loading="lazy"/>
+            <div class="showcase-item-badge">Sunset</div>
+          </div>
+          <div class="showcase-item sc-forest">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Forest" loading="lazy"/>
+            <div class="showcase-item-badge">Forest</div>
+          </div>
+          <div class="showcase-item sc-invert">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Invert" loading="lazy"/>
+            <div class="showcase-item-badge">Invert</div>
+          </div>
+ 
+        </div>
       </div>
-      <div class="showcase-item sc-grayscale" data-label="Grayscale" data-anim="zoom-in" data-delay="200">
-        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Grayscale" loading="lazy"/>
-        <div class="showcase-item-badge">Grayscale</div>
+ 
+      <!-- Progress bar -->
+      <div class="carousel-progress">
+        <div class="carousel-progress-bar" id="carouselProgress"></div>
       </div>
-      <div class="showcase-item sc-sepia"     data-label="Sepia"     data-anim="zoom-in" data-delay="300">
-        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Sepia" loading="lazy"/>
-        <div class="showcase-item-badge">Sepia</div>
-      </div>
-      <div class="showcase-item sc-vintage"   data-label="Vintage"   data-anim="zoom-in" data-delay="400">
-        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Vintage" loading="lazy"/>
-        <div class="showcase-item-badge">Vintage</div>
-      </div>
-      <div class="showcase-item sc-noir"      data-label="Noir"      data-anim="zoom-in" data-delay="500">
-        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Noir" loading="lazy"/>
-        <div class="showcase-item-badge">Noir</div>
-      </div>
-      <div class="showcase-item sc-cool"      data-label="Cool"      data-anim="zoom-in" data-delay="600">
-        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Cool" loading="lazy"/>
-        <div class="showcase-item-badge">Cool</div>
-      </div>
-      <div class="showcase-item sc-warm"      data-label="Warm"      data-anim="zoom-in" data-delay="600">
-        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Cool" loading="lazy"/>
-        <div class="showcase-item-badge">Warm</div>
-      </div>
-      <div class="showcase-item sc-chrome"      data-label="Chrome"      data-anim="zoom-in" data-delay="600">
-        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Cool" loading="lazy"/>
-        <div class="showcase-item-badge">Chrome</div>
-      </div>
-      <div class="showcase-item sc-fade"      data-label="Fade"      data-anim="zoom-in" data-delay="600">
-        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Cool" loading="lazy"/>
-        <div class="showcase-item-badge">Fade</div>
-      </div>
-      <div class="showcase-item sc-sunset"      data-label="Sunset"      data-anim="zoom-in" data-delay="600">
-        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Cool" loading="lazy"/>
-        <div class="showcase-item-badge">Sunset</div>
-      </div>
-      <div class="showcase-item sc-forest"      data-label="Forest"      data-anim="zoom-in" data-delay="600">
-        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Cool" loading="lazy"/>
-        <div class="showcase-item-badge">Forest</div>
-      </div>
-      <div class="showcase-item sc-invert"      data-label="Invert"      data-anim="zoom-in" data-delay="600">
-        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Cool" loading="lazy"/>
-        <div class="showcase-item-badge">Invert</div>
+ 
+      <!-- Nav -->
+      <div class="carousel-nav">
+        <div class="carousel-dots" id="carouselDots"></div>
+        <div class="carousel-btns">
+          <button class="carousel-btn" id="carouselPrev" aria-label="Sebelumnya">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M11 4L6 9l5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <button class="carousel-btn" id="carouselNext" aria-label="Berikutnya">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M7 4l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
-    <div style="text-align:center;" data-anim="slide-up" data-delay="400">
-      <a href="FilterPage.html" class="btn-primary btn">Coba Sekarang →</a>
+ 
+    <div style="text-align:center; margin-top:40px;" data-anim="slide-up" data-delay="300">
+      <a href="studio.html" class="btn-primary btn">Coba Semua Filter →</a>
     </div>
   </section>
 
