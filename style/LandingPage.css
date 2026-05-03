@@ -207,7 +207,7 @@
     .card { transition: all 0.4s ease; }
     .card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
 
-    /* ── NAVBAR ─────────────────────────────────── */
+    /* ── NAVBAR ─────────────────────────────────── */   
     header {
       position: sticky; top: 0; z-index: 100;
       display: flex; justify-content: space-between; align-items: center;
@@ -219,7 +219,7 @@
     }
     header.scrolled {
       border-bottom-color: var(--border);
-      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);  
       padding-top: 12px; padding-bottom: 12px;
     }
       .logo-navbar{
