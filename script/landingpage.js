@@ -22,6 +22,36 @@
       });
     }
 
+    // ══ HAMBURGER MOBILE NAV ═══════════════════════════════
+    const hamburger      = document.getElementById('hamburger');
+    const mobileNav      = document.getElementById('mobileNav');
+    const mobileBackdrop = document.getElementById('mobileBackdrop');
+    const mobileClose    = document.getElementById('mobileClose');
+ 
+    function openMobileNav() {
+      hamburger.classList.add('open');
+      mobileNav.classList.add('open');
+      mobileBackdrop.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMobileNav() {
+      hamburger.classList.remove('open');
+      mobileNav.classList.remove('open');
+      mobileBackdrop.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+ 
+    hamburger.addEventListener('click', () => {
+      mobileNav.classList.contains('open') ? closeMobileNav() : openMobileNav();
+    });
+    mobileClose.addEventListener('click', closeMobileNav);
+    mobileBackdrop.addEventListener('click', closeMobileNav);
+ 
+    // Tutup dengan ESC
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeMobileNav();
+    });
+ 
     // ══ NAVBAR SHRINK ══════════════════════════════════════
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {

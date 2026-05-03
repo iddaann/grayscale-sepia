@@ -51,6 +51,30 @@
       <a href="about.html">About Us</a>
     </nav>
     <a href="FilterPage.html" class="btn-nav btn" data-anim="slide-right" data-delay="300">Open Studio →</a>
+
+    <!-- Hamburger -->
+    <button class="hamburger" id="hamburger" aria-label="Buka menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+ 
+  <!-- Mobile Nav Backdrop -->
+  <div class="mobile-nav-backdrop" id="mobileBackdrop"></div>
+ 
+  <!-- Mobile Nav Drawer -->
+  <div class="mobile-nav" id="mobileNav">
+    <button class="mobile-nav-close" id="mobileClose" aria-label="Tutup menu">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M2 2l12 12M14 2L2 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <a href="#features" onclick="closeMobileNav()">Fitur</a>
+    <a href="#filters"  onclick="closeMobileNav()">Filter</a>
+    <a href="#preview"  onclick="closeMobileNav()">Preview</a>
+    <a href="#cta"      onclick="closeMobileNav()">Mulai</a>
+    <a href="about.html" onclick="closeMobileNav()">About</a>
+    <a href="FilterPage.html" class="btn-nav-mobile">Buka Studio →</a>
+  </div>
   </header>
 
   <!-- ══ HERO ══════════════════════════════════════════════ -->
@@ -252,7 +276,7 @@
     </div>
  
     <div style="text-align:center; margin-top:40px;" data-anim="slide-up" data-delay="300">
-      <a href="FilterPage.html" class="btn-primary btn">Coba Semua Filter →</a>
+      <a href="FilterPage.html" class="btn-primary btn">Coba Se mua Filter →</a>
     </div>
   </section>
 

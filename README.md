@@ -7,10 +7,19 @@ Semua pemrosesan dilakukan **di browser**, tanpa upload ke server.
 
 ```
 photo-filter-generator/
-├── index.html   — Halaman utama & markup
-├── style.css    — Semua styling & animasi
-├── app.js       — Logika filter & interaktivitas
-└── README.md    — Dokumentasi ini
+├── script
+  ├── about.js
+  ├── app.js
+  ├── landingpage.js
+├── src
+├── style
+  ├── about.css
+  ├── landingpage.css
+  ├── style.css
+├── index.html  
+├── about.html   
+├── FilterPage.html      
+└── README.md    
 ```
 
 ## Cara Pakai

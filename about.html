@@ -49,6 +49,30 @@
       <a href="about.html" class="active-link">About</a>
     </nav>
     <a href="FilterPage.html" class="btn-nav" data-anim="slide-right" data-delay="300">Buka Studio →</a>
+
+    <!-- Hamburger -->
+    <button class="hamburger" id="hamburger" aria-label="Buka menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+ 
+  <!-- Mobile Nav Backdrop -->
+  <div class="mobile-nav-backdrop" id="mobileBackdrop"></div>
+ 
+  <!-- Mobile Nav Drawer -->
+  <div class="mobile-nav" id="mobileNav">
+    <button class="mobile-nav-close" id="mobileClose" aria-label="Tutup menu">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M2 2l12 12M14 2L2 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <a href="index.html#features" onclick="closeMobileNav()">Fitur</a>
+    <a href="index.html#filters"  onclick="closeMobileNav()">Filter</a>
+    <a href="index.html#preview"  onclick="closeMobileNav()">Preview</a>
+    <a href="index.html#cta"      onclick="closeMobileNav()">Mulai</a>
+    <a href="about.html" onclick="closeMobileNav()">About</a>
+    <a href="FilterPage.html" class="btn-nav-mobile">Buka Studio →</a>
+  </div>
   </header>
 
   <!-- ══ HERO ══════════════════════════════════════════════ -->
@@ -170,14 +194,15 @@
           <img class="member-photo"
             src="./src/WhatsApp Image 2026-04-29 at 7.10.25 PM.jpeg"
             alt="Anggota 1" loading="lazy"/>
-          <div class="member-role-badge">Team Lead</div>
+          <div class="member-role-badge">Team Lead & Frontend</div>
         </div>
         <div class="member-info">
           <div class="member-name">Taufik Sabillah</div>
           <div class="member-nim">NPM: 257006111221</div>
           <div class="member-bio">Bertanggung jawab atas berlangsungnya Project dan sebagai desainer UI/UX project</div>
           <div class="member-skills">
-            <span class="skill-tag">UI Design</span>
+            <span class="skill-tag">Team Lead</span>
+            <span class="skill-tag">Frontend Engineer</span>
           </div>
           <div class="member-socials">
             <a href="#" class="social-btn" title="GitHub">
@@ -200,15 +225,13 @@
           <img class="member-photo"
             src="./src/cb22cbb6-7392-4205-9c21-d8dac6d60192.jfif"
             alt="Anggota 2" loading="lazy"/>
-          <div class="member-role-badge">role</div>
+          <div class="member-role-badge">laporan</div>
         </div>
         <div class="member-info">
           <div class="member-name">Muhammad Fabian Syauqi Mazaya</div>
-          <div class="member-nim">NIM: 123456002</div>
-          <div class="member-bio">Mendesain seluruh antarmuka dan sistem warna FiltraLens. Terinspirasi dari estetika film analog dan kafe vintage.</div>
+          <div class="member-nim">NIM: 257006111197</div>
+          <div class="member-bio">bertanggung jawab atas seluruh laporan dari project.</div>
           <div class="member-skills">
-            <span class="skill-tag">CSS Animation</span>
-            <span class="skill-tag">Figma</span>
             <span class="skill-tag">Typography</span>
           </div>
           <div class="member-socials">
@@ -230,18 +253,18 @@
       <div class="member-card color-red" data-anim="pop" data-delay="300">
         <div class="member-photo-wrap">
           <img class="member-photo"
-            src="./src/"
+            src="./src/WhatsApp Image 2026-05-03 at 4.56.03 AM.jpeg"
             alt="Anggota 3" loading="lazy"/>
-          <div class="member-role-badge">Algorithm Dev</div>
+          <div class="member-role-badge">Manual Book</div>
         </div>
         <div class="member-info">
           <div class="member-name">Danar Yusuf Gantika Putera</div>
-          <div class="member-nim">NIM: 123456003</div>
+          <div class="member-nim">NIM: 257006111190</div>
           <div class="member-bio">Mengimplementasikan semua algoritma filter berbasis determinan dan logika pemrosesan pixel. Detail-oriented dan sabar.</div>
           <div class="member-skills">
-            <span class="skill-tag">Pixel Math</span>
-            <span class="skill-tag">Image Processing</span>
-            <span class="skill-tag">Optimization</span>
+            <span class="skill-tag">Technical Writing</span>
+            <span class="skill-tag">Presentation</span>
+            <span class="skill-tag">Graphic Designer</span>
           </div>
           <div class="member-socials">
             <a href="#" class="social-btn" title="GitHub">
@@ -264,16 +287,14 @@
           <img class="member-photo"
             src="./src/WhatsApp Image 2026-05-01 at 7.02.31 AM.jpeg"
             alt="Anggota 4" loading="lazy"/>
-          <div class="member-role-badge">Frontend Dev</div>
+          <div class="member-role-badge">Laporan</div>
         </div>
         <div class="member-info">
           <div class="member-name">Rima Anggraeni</div>
           <div class="member-nim">NIM: 123456004</div>
-          <div class="member-bio">Membangun komponen interaktif dan memastikan pengalaman pengguna yang mulus di semua perangkat dan ukuran layar.</div>
+          <div class="member-bio">Bertanggung jawab atas seluruh laporan project.</div>
           <div class="member-skills">
-            <span class="skill-tag">HTML/CSS</span>
-            <span class="skill-tag">Responsive</span>
-            <span class="skill-tag">Accessibility</span>
+            <span class="skill-tag">Typhography</span>
           </div>
           <div class="member-socials">
             <a href="#" class="social-btn" title="GitHub">
@@ -296,16 +317,15 @@
           <img class="member-photo"
             src="./src/Gemini_Generated_Image_6x0lwq6x0lwq6x0l.png"
             alt="Anggota 5" loading="lazy"/>
-          <div class="member-role-badge">QA & Testing</div>
+          <div class="member-role-badge">Backend & Frontend</div>
         </div>
         <div class="member-info">
           <div class="member-name">Muhammad Ramdhani Fathul Muttaqin</div>
           <div class="member-nim">NPM: 257006111216</div>
-          <div class="member-bio">Memastikan semua filter bekerja sempurna di berbagai browser dan kondisi. Bug hunter yang tak kenal lelah dan perfeksionis.</div>
+          <div class="member-bio">Membangun sistem dan interface aplikasi.</div>
           <div class="member-skills">
-            <span class="skill-tag">Testing</span>
-            <span class="skill-tag">Cross-browser</span>
-            <span class="skill-tag">Performance</span>
+            <span class="skill-tag">Backend Engineer</span>
+            <span class="skill-tag">Frontend Engineer</span>
           </div>
           <div class="member-socials">
             <a href="#" class="social-btn" title="GitHub">
@@ -326,18 +346,18 @@
       <div class="member-card color-gold" data-anim="pop" data-delay="600">
         <div class="member-photo-wrap">
           <img class="member-photo"
-            src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&q=80"
+            src="./src/WhatsApp Image 2026-05-02 at 8.15.41 PM.jpeg"
             alt="Anggota 6" loading="lazy"/>
-          <div class="member-role-badge">Dokumentasi</div>
+          <div class="member-role-badge">Manual Book</div>
         </div>
         <div class="member-info">
           <div class="member-name">Ahmad Faiz Muzzaki</div>
           <div class="member-nim">NIM: 123456006</div>
-          <div class="member-bio">Menyusun dokumentasi teknis, laporan proyek, dan presentasi. Juga menjaga komunikasi tim tetap terorganisir dan produktif.</div>
+          <div class="member-bio">Menyusun Manual Book sebagai panduan penggunakan aplikasi</div>
           <div class="member-skills">
             <span class="skill-tag">Technical Writing</span>
             <span class="skill-tag">Presentation</span>
-            <span class="skill-tag">Research</span>
+            <span class="skill-tag">Graphic Designer</span>
           </div>
           <div class="member-socials">
             <a href="#" class="social-btn" title="GitHub">
